@@ -10,6 +10,8 @@ app.get('/', (req, res) => {
   res.render('pad');
 });
 
+app.get('')
+
 var port = process.env.PORT || 8080;
 console.log("listening on port 8080");
 app.listen(port);

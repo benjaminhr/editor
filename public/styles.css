@@ -9,6 +9,7 @@ html, body, section, .full-height {
 
 #pad {
     font-family: Courier; /* check this */
+    font-size:15px;
     border: none;
     overflow: auto;
     outline: none;
@@ -27,7 +28,7 @@ html, body, section, .full-height {
 
 #markdown {
     overflow: auto;
-    border-left: 1px solid black;
+    border-left: 3px solid black;
     width:50%;
     float:right;
     display:inline-block;
@@ -40,4 +41,9 @@ html, body, section, .full-height {
   content:attr(data-placeholder);
   color:black;
   opacity:0.8;
+}
+
+#markdown h1,h2,h3,h4,h5,h6,p {
+  margin:5px;
+  padding:0px;
 }

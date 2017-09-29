@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/benjaminr177/editor/issues"
   },
-  "homepage": "https://github.com/benjaminr177/editor#readme"
+  "homepage": "https://github.com/benjaminr177/editor#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.0",
+    "redis": "^2.8.0",
+    "share": "^0.7.40"
+  }
 }

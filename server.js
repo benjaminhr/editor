@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 app.get('/(:id)', (req,res) => {
   res.render('pad');
-})
+});
 
 var options = {
   db: {

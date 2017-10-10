@@ -1,8 +1,17 @@
 window.onload = () => {
+  /**
+   * Precheck URL for an ID, create one if none exists.
+   * Redis RedisDB retrieves and stores by the generated ID.
+   */
+  var urlContainsGuid = utils.containsGuid(window.location.href);
+  if (!urlContainsGuid) {
+    window.location.href = `/${utils.generateGuid()}`;
+  }
+
   var converter = new showdown.Converter();
   var pad = document.getElementById('pad');
   var markdownArea = document.getElementById('markdown');
-
+  var currentGuid = utils.pickGuid(window.location.href);
   var previousMarkdownValue;
 
   var convertTextAreaToMarkdown = () => {
@@ -27,7 +36,7 @@ window.onload = () => {
 
   pad.addEventListener('input', convertTextAreaToMarkdown);
 
-  sharejs.open('home', 'text', (error,doc) => {
+  sharejs.open(currentGuid, 'text', (error, doc) => {
     doc.attach_textarea(pad);
     convertTextAreaToMarkdown();
   });

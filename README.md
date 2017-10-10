@@ -1,6 +1,6 @@
 # Shared Markdown Editor
 
-![alt](https://i.imgur.com/gtQXj0u.gif)
+![alt](https://i.imgur.com/gtQXj0u.gif =500x500)
 
 Built with NodeJS with dependencies such as Redis, ShareJS (0.6.3) , and Express.
 
@@ -11,5 +11,7 @@ Built with NodeJS with dependencies such as Redis, ShareJS (0.6.3) , and Express
 2. `npm install` (or yarn equivalent)
 
 3.  `npm install --save share@0.6.3` - this specific version of ShareJS is required. 
+
+4. Redis server running whichever way you wish to do that - my suggestion is to `brew install redis` and then run `redis server` paired with `redis-cli` in another tab/window.
 
 4. `node server` will get the projecting running on `localhost:8080`

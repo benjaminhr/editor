@@ -5,14 +5,14 @@ const { JSDOM } = require("jsdom");
 
 const guidRegex = /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/ig;
 const utils = fs.readFileSync(appRoot + '/public/utils.js', { encoding: "utf-8" });
-const { window } = new JSDOM(``, { runScripts: "outside-only" });
+const dom = new JSDOM(``, { runScripts: 'outside-only' });
 let subject;
 
 describe('utils', function () {
     beforeEach(function() {
-        // Set the scoped utils onto global window for testing
-        window.eval(utils + 'window.utils = utils;');
-        subject = window.utils;
+        // Set the scoped utils onto global
+        dom.window.eval(utils + 'window.utils = utils;');
+        subject = dom.window.utils;
     });
   describe('generateGuid', function () {
     it('should generate random guid with the correct format', function () {

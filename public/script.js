@@ -41,3 +41,6 @@ window.onload = () => {
     convertTextAreaToMarkdown();
   });
 }
+
+
+console.log('yeaaaaaaah boi');

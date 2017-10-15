@@ -1,18 +1,19 @@
 const fs = require('fs');
 const appRoot = process.cwd();
 const assert = require('assert'); 
-const { JSDOM } = require("jsdom");
+const jsdom = require('jsdom').jsdom;
 
 const guidRegex = /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/ig;
 const utils = fs.readFileSync(appRoot + '/public/utils.js', { encoding: "utf-8" });
-const dom = new JSDOM(``, { runScripts: 'outside-only' });
+const dom = jsdom(``);
 let subject;
 
 describe('utils', function () {
     beforeEach(function() {
         // Set the scoped utils onto global
-        dom.window.eval(utils + 'window.utils = utils;');
-        subject = dom.window.utils;
+        const window = dom.defaultView;
+        window.eval(utils + 'window.utils = utils;');
+        subject = window.utils;
     });
   describe('generateGuid', function () {
     it('should generate random guid with the correct format', function () {
